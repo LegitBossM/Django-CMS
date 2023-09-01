@@ -1,0 +1,17 @@
+{% extends 'app/main.html' %}
+{% block content %}
+    <div class="container">
+        <h1>Welcome {{ request.session.firstname }} {{ request.session.lastname }}</h1>
+        <h4>User Id: {{ request.session.id }}</h4>
+        <br>
+        <div class="card container" style="width: 18rem; " >
+            <div class="card-header">
+              <h1>List</h1>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a class="btn btn-primary" href="{% url 'addnew' %}">Add Contact</a></li>
+              <li class="list-group-item"><a class="btn btn-primary" href="{% url 'view-list' %}">View Contacts</a></li>
+            </ul>
+          </div>
+    </div>
+{% endblock %}

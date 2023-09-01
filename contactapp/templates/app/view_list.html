@@ -1,0 +1,44 @@
+{% extends 'app/main.html' %}
+{% block content %}
+<br>
+<br>
+
+    <div class="container">
+       <div class="card-header" style="width: 700px; ">
+            <form action="{% url 'search' %}" method="get">
+                {% csrf_token %}
+                Firstname: <input type="text" name="firstname" placeholder="Enter Firstname" class=""><input type="submit" value="Search" class="btn btn-info">
+            </form>
+       </div>
+        <br>
+        <br>
+        <table class="table text-center table-bordered table-striped table-light  table-hover">
+                
+            <thead class="table-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone No.</th>
+                    <th>Address</th>
+                    <th>Relationship</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in contactlist %}
+                    <tr>
+                        <td>{{i.firstname}}</td>
+                        <td>{{i.lastname}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.phone}}</td>
+                        <td>{{i.address}}</td>
+                        <td>{{i.relationship}}</td>
+                        <td><a href="" class="btn btn-info btn-sm">Update</a></td>
+                        <td><a href="" class="btn btn-danger btn-sm">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div> 
+{% endblock %}

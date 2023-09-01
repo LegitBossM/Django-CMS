@@ -1,0 +1,29 @@
+{% extends 'app/main.html' %}
+{% block content %}
+    <br>
+    <br>
+    <div class="container" style="width: 500px; box-shadow: 0 5px 15px #888;">
+        <div class="card card-header">
+            <h1 class="text-center">Login</h1>
+        </div>
+        <div class="card card-body ">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label" style="text-align: left;">Username</label>
+                    <input type="text" class="form-control" name="username" aria-describedby="emailHelp">                    
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label" style="text-align: left;">Password</label>
+                    <input type="password" class="form-control" name="password" aria-describedby="emailHelp">                    
+                </div>
+
+                <input type="submit" value="Submit" class="btn btn-success" style="width: 100%;">
+
+            </form>
+            <br>
+            <p>Don't have and account? <a href="{% url 'register' %}" class="btn btn-warning btn-sm">Register</a></p>
+        </div>
+    </div>
+{% endblock %}
